@@ -1,0 +1,10 @@
+fluent:
+  stage: build
+  tags:
+    - mozmeao
+    - aws
+  only:
+    - schedules
+  script:
+    - ./process-ftl.sh
+  retry: 2
