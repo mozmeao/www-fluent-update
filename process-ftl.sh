@@ -10,3 +10,7 @@ docker run --rm \
     -e FLUENT_L10N_TEAM_REPO \
     "$DOCKER_IMAGE" \
     python manage.py process_ftl --push
+
+if [[ -n "$SNITCH_ID" ]]; then
+    curl "https://nosnch.in/${SNITCH_ID}"
+fi
