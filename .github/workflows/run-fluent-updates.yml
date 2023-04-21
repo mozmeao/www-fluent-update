@@ -1,0 +1,17 @@
+name: "Run Fluent Updates"
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "1,16,31,46 * * * *" # Every 15 mins, starting at 1min past the hour
+env:
+  FLUENT_REPO_AUTH: ${{ secrets.FLUENT_REPO_AUTH }}
+  SNITCH_ID: ${{ secrets.SNITCH_ID }}
+
+jobs:
+  fluent_processing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - id: trigger-processing
+        shell: bash
+        run: ./process-ftl.sh
