@@ -1,8 +1,9 @@
 name: "Run Fluent Updates"
 on:
+  schedule:
+    - cron: "15 9,21 * * *" # 9:15 and 21:15, daily
   workflow_dispatch:
-  # schedule:
-  #   - cron: "1,16,31,46 * * * *" # Every 15 mins, starting at 1min past the hour
+
 env:
   FLUENT_REPO_AUTH: ${{ secrets.FLUENT_REPO_AUTH }}
   SNITCH_ID: ${{ secrets.SNITCH_ID }}
